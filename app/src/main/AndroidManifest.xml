@@ -12,8 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FlagQuiz">
         <activity
-            android:name=".ResultActivity"
             android:name=".QuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ResultActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

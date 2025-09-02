@@ -1,5 +1,6 @@
 package com.example.flagquiz
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -21,10 +22,15 @@ class MainActivity : AppCompatActivity() {
     }
     fun iniciarJogo(view: View){
         val jogador1 = findViewById<EditText>(R.id.Jogador1).text.toString()
-        //val intent = Intent(this, TelaJogo::class.java)
+
+        if (jogador1.isEmpty()){
+            findViewById<EditText>(R.id.Jogador1).error = "Por favor insira um nome"
+            return
+        }
+        val intent = Intent(this, QuizActivity::class.java)
 
         intent.putExtra("jogador1", jogador1)
-       // startActivity(intent)
+        startActivity(intent)
     }
 
 }
