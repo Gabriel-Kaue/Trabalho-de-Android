@@ -1,6 +1,8 @@
 package com.example.flagquiz
 
 import android.os.Bundle
+import android.view.View
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,4 +19,12 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
+    fun iniciarJogo(view: View){
+        val jogador1 = findViewById<EditText>(R.id.Jogador1).text.toString()
+        //val intent = Intent(this, TelaJogo::class.java)
+
+        intent.putExtra("jogador1", jogador1)
+       // startActivity(intent)
+    }
+
 }
