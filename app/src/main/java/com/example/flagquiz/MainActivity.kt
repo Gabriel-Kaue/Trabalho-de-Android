@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
         val intent = Intent(this, QuizActivity::class.java)
-
+        val user= User(nome=jogador1, pontos=0)
         intent.putExtra("user", user)
         startActivity(intent)
     }

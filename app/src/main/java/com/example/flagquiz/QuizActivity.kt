@@ -27,11 +27,11 @@ class QuizActivity : AppCompatActivity() {
         Pais("Cuba", R.drawable.flag_cuba),
         Pais("Egito", R.drawable.flag_egito),
         Pais("Gana", R.drawable.flag_ghana),
-        Pais("Italia", R.drawable.flag_italia),
+        Pais("Itália", R.drawable.flag_italia),
         Pais("Jamaica", R.drawable.flag_jamaica),
         Pais("Marrocos", R.drawable.flag_marrocos),
-        Pais("Russia", R.drawable.flag_russia),
-        Pais("Suecia", R.drawable.flag_suecia)
+        Pais("Rússia", R.drawable.flag_russia),
+        Pais("Suécia", R.drawable.flag_suecia)
     )
     val flags = listOf(
         R.drawable.flag_brazil,
