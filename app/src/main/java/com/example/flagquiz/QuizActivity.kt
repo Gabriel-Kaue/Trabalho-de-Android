@@ -27,11 +27,11 @@ class QuizActivity : AppCompatActivity() {
         Pais("Cuba", R.drawable.flag_cuba),
         Pais("Egito", R.drawable.flag_egito),
         Pais("Gana", R.drawable.flag_ghana),
-        Pais("Itália", R.drawable.flag_italia),
+        Pais("Italia", R.drawable.flag_italia),
         Pais("Jamaica", R.drawable.flag_jamaica),
         Pais("Marrocos", R.drawable.flag_marrocos),
-        Pais("Rússia", R.drawable.flag_russia),
-        Pais("Suécia", R.drawable.flag_suecia)
+        Pais("Russia", R.drawable.flag_russia),
+        Pais("Suecia", R.drawable.flag_suecia)
     )
     val flags = listOf(
         R.drawable.flag_brazil,
@@ -52,6 +52,7 @@ class QuizActivity : AppCompatActivity() {
     lateinit var paisesRodada: List<Pais>
     var indiceAtual = 0
     var pontos = 0
+    val resumoRodada = mutableListOf<String>()
 
 
     lateinit var textViewContador: TextView
@@ -60,10 +61,21 @@ class QuizActivity : AppCompatActivity() {
     lateinit var buttonVerificar: Button
     lateinit var buttonProxima: Button
 
+    lateinit var user: User
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_quiz)
+
+        user = intent.getParcelableExtra<User>("user")!!
+
+        if (user == null) {
+            Toast.makeText(this, "Erro ao carregar dados do jogador", Toast.LENGTH_LONG).show()
+            finish()
+            return
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -109,12 +121,13 @@ class QuizActivity : AppCompatActivity() {
     fun verificarResposta() {
         val resposta = editTextResposta.text.toString()
         val paisCorreto = paisesRodada[indiceAtual]
+        val numeroPergunta = indiceAtual + 1
 
         if (resposta.equals(paisCorreto.nome, ignoreCase = true)) {
-            pontos++
-            Toast.makeText(this, "Acertou!", Toast.LENGTH_SHORT).show()
+            pontos = pontos + 20
+            resumoRodada.add("$numeroPergunta: Acertou! ${paisCorreto.nome}")
         } else {
-            Toast.makeText(this, "Errado! A resposta era ${paisCorreto.nome}", Toast.LENGTH_SHORT).show()
+            resumoRodada.add("$numeroPergunta: Você digitou $resposta e a resposta era: ${paisCorreto.nome}")
         }
 
         buttonVerificar.isEnabled = false
@@ -133,10 +146,16 @@ class QuizActivity : AppCompatActivity() {
     }
 
     fun finalizarJogo() {
+
+        user.pontos = this.pontos
+
         val intent = Intent(this, ResultActivity::class.java)
 
         //intents para passar os parametros
-        //intent.putExtra("pontuacao_final", pontos)
+        intent.putExtra("PLAYER_NAME", user.nome)
+        intent.putExtra("FINAL_SCORE", user.pontos)
+        intent.putExtra("RESULTS_DETAILS", ArrayList(resumoRodada))
+
 
         startActivity(intent)
         finish()

@@ -9,21 +9,25 @@
     tools:context=".ResultActivity">
 
 
+    <!-- tools:text é para visualização no editor -->
+
+
+    <!-- &#10; é uma quebra de linha -->
+
+
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
         android:text="Resultados"
         android:textSize="32sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- tools:text é para visualização no editor -->
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.062" />
 
     <TextView
         android:id="@+id/tvPlayerName"
@@ -31,10 +35,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintVertical_bias="0.0"
         tools:text="Nome do Jogador" />
 
     <TextView
@@ -43,14 +48,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPlayerName"
+        app:layout_constraintVertical_bias="0.028"
         tools:text="Pontuação Final: 100" />
-
-
-    <!-- &#10; é uma quebra de linha -->
-
 
     <TextView
         android:id="@+id/tvResultsSummary"
@@ -60,10 +63,12 @@
         android:background="#1A000000"
         android:padding="16dp"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvScore"
+        app:layout_constraintVertical_bias="0.0"
         tools:text="1. Brasil - Correto&#10;2. Japão - Incorreto" />
 
     <Button
@@ -75,6 +80,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvResultsSummary"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
