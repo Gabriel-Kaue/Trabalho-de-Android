@@ -1,9 +1,9 @@
 # Trabalho-de-Android
 ## Participantes
-Arthur Borges Toso GRR20211595
+Arthur Borges Toso 
 
-Caio Yuzo Hiraga GRR20221088
+Caio Yuzo Hiraga 
 
-Gabriel Kauê Caitano Alves GRR20223815
+Gabriel Kauê Caitano Alves 
 
 
