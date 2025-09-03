@@ -28,12 +28,12 @@ class ResultActivity : AppCompatActivity() {
 
         val playerName = intent.getStringExtra("PLAYER_NAME")
         val finalScore = intent.getIntExtra("FINAL_SCORE", 0) // 0 é um valor padrão caso o dado não seja encontrado.
-        val resultsDetails = intent.getStringExtra("RESULTS_DETAILS")
+        val resultsDetails = intent.getStringArrayListExtra("RESULTS_DETAILS")
 
 
         tvPlayerName.text = playerName
-        tvScore.text = "Pontuaçmas ão Final: $finalScore"
-        tvResultsSummary.text = resultsDetails
+        tvScore.text = "Pontuação Final: $finalScore"
+        tvResultsSummary.text = resultsDetails?.joinToString("\n")
 
 
         btnPlayAgain.setOnClickListener {

@@ -22,14 +22,19 @@ class MainActivity : AppCompatActivity() {
     }
     fun iniciarJogo(view: View){
         val jogador1 = findViewById<EditText>(R.id.Jogador1).text.toString()
-        if (jogador1.isEmpty()){
-            findViewById<EditText>(R.id.Jogador1).error = "Por favor insira um nome"
-            return
-        
+        //if (jogador1.isEmpty()){
+          //  findViewById<EditText>(R.id.Jogador1).error = "Por favor insira um nome"
+            //return
+
+        val user = User(
+            nome = jogador1,
+            pontos = 0
+        )
+
         val intent = Intent(this, QuizActivity::class.java)
 
-        intent.putExtra("jogador1", jogador1)
+        intent.putExtra("user", user)
         startActivity(intent)
     }
-
 }
+

@@ -1,6 +1,10 @@
 package com.example.flagquiz
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class User(
     val nome: String,
-    val pontos: Int,
-)
+    var pontos: Int,
+): Parcelable
